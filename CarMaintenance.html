@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Car Maintenance App</title>
+        <link rel="stylesheet" href="CSS\style.css">
+    </head>
+    <body>
+        <h1>Car Maintenance</h1>
+        <div class="form-container">
+        <form id="vehicleForm">
+            <legend>Add Vehicle</legend>
+            <label for="make">Make:</label>
+            <select id="make" name="make" required>
+                <option value="" disabled selected>Select a make</option>
+                <option value="Acura">Acura</option>
+                <option value="Alfa Romeo">Alfa Romeo</option>
+                <option value="Aston Martin">Aston Martin</option>
+                <option value="Audi">Audi</option>
+                <option value="Bentley">Bentley</option>
+                <option value="BMW">BMW</option>
+                <option value="Bugatti">Bugatti</option>
+                <option value="Buick">Buick</option>
+                <option value="Cadillac">Cadillac</option>
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="Chrysler">Chrysler</option>
+                <option value="Citroën">Citroën</option>
+                <option value="Dodge">Dodge</option>
+                <option value="Ferrari">Ferrari</option>
+                <option value="Fiat">Fiat</option>
+                <option value="Ford">Ford</option>
+                <option value="Genesis">Genesis</option>
+                <option value="GMC">GMC</option>
+                <option value="Honda">Honda</option>
+                <option value="Hyundai">Hyundai</option>
+                <option value="Infiniti">Infiniti</option>
+                <option value="Jaguar">Jaguar</option>
+                <option value="Jeep">Jeep</option>
+                <option value="Kia">Kia</option>
+                <option value="Lamborghini">Lamborghini</option>
+                <option value="Land Rover">Land Rover</option>
+                <option value="Lexus">Lexus</option>
+                <option value="Lincoln">Lincoln</option>
+                <option value="Lotus">Lotus</option>
+                <option value="Maserati">Maserati</option>
+                <option value="Mazda">Mazda</option>
+                <option value="McLaren">McLaren</option>
+                <option value="Mercedes-Benz">Mercedes-Benz</option>
+                <option value="Mini">Mini</option>
+                <option value="Mitsubishi">Mitsubishi</option>
+                <option value="Nissan">Nissan</option>
+                <option value="Pagani">Pagani</option>
+                <option value="Peugeot">Peugeot</option>
+                <option value="Porsche">Porsche</option>
+                <option value="Ram">Ram</option>
+                <option value="Renault">Renault</option>
+                <option value="Rolls-Royce">Rolls-Royce</option>
+                <option value="Saab">Saab</option>
+                <option value="Scion">Scion</option>
+                <option value="Subaru">Subaru</option>
+                <option value="Suzuki">Suzuki</option>
+                <option value="Tesla">Tesla</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Volkswagen">Volkswagen</option>
+                <option value="Volvo">Volvo</option>
+            </select>
+            
+                
+            <label for="model">Model:</label>
+            <select id="model" name="model" required>
+                <option value="" disabled selected>Select a model</option>
+            </select>
+            
+                
+            <label for="year">Year:</label>
+            <select id="year" name="year" required>
+                <option value="" disabled selected>Select a year</option>
+            </select>
+            
+                
+                <button id ="submit" type="submit">Add Vehicle</button>
+        </form>
+
+        <form>
+            <div class="vehicle-list">
+                <h2>Saved Vehicles</h2>
+                <ul id="vehicle-list"></ul>
+            </div>
+
+            <button id="clearAll" type="reset">Clear Vehicles</button>
+        </form>
+           
+        <form>
+            <legend>Add Maintenance</legend>
+            
+            <label for="vehicle-select">Select Vehicle:</label>
+            <select id="vehicle-select">
+            <option value="" disabled selected>Select a saved vehicle</option>
+            </select>
+            
+            <label for="maintenance-tasks">Maintenance Tasks:</label>
+            <textarea id="maintenance-tasks" placeholder="Enter maintenance tasks"></textarea>
+    
+            <button type="button" id="save-maintenance">Save Maintenance List</button>
+        </form>
+    </div>
+        <div id="maintenance-display">
+            <h3>Maintenance list</h3>
+            <ul id="maintenance-records"></ul>
+        </div>
+
+
+        <script src="JS/script.js"></script>
+    </body>
+</html>

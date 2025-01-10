@@ -1,0 +1,204 @@
+h1 {
+    text-align: center;               /* Centers the text */
+    color: rgb(255, 255, 255);        /* White color for the text */
+    font-family: 'Century Gothic', sans-serif; /* Clean, modern font */
+    font-size: 2.5em;                 /* Larger font size for emphasis */
+    font-weight: 700;                 /* Bold text */
+    background-color: #333;           /* Darker background for contrast */
+    padding: 20px;                    /* Space around the text */
+    border-radius: 10px;              /* Rounded corners for a soft look */
+    margin-top: 30px;                 /* Adds space at the top */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Adds depth with shadow */
+    text-transform: uppercase;        /* Makes text uppercase for added emphasis */
+    letter-spacing: 2px;              /* Adds some spacing between letters */
+    background-image: linear-gradient(45deg, #3a3537,#007bff); /* Gradient background for a vibrant look */
+    color: white;                     /* White text on top of the gradient */
+}
+
+/* Adding hover effect */
+h1:hover {
+    transform: scale(1.05);           /* Slightly enlarges the text on hover */
+    transition: transform 0.3s ease;  /* Smooth scaling transition */
+}
+
+
+body {
+    font-family: Century Gothic;
+    margin: 0;
+    height: 100vh;
+    background-color: #f0f0f0;
+    background-image: url('g37x.jpg');
+    background-size: cover; 
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: rgb(50, 50, 50);
+    
+  }
+
+.removeButton{
+    background-color: #ff4d4d; /* Light red background */
+    color: white; /* White text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px 10px; /* Padding inside the button */
+    font-size: 14px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-left: 10px; /* Space between text and button */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+    margin: 10px;
+}
+
+/* General Form Styling */
+form {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 500px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for All Legends */
+form legend {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Styling for All Labels */
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Styling for All Inputs */
+form input, form select, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+/* Styling for All Buttons in Forms */
+form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover Effect for Buttons */
+ button:hover {
+    background-color: #0056b3;
+}
+
+/* Textarea Specific Styling */
+form textarea {
+    min-height: 100px;
+    padding: 0%;
+    font-family: Century Gothic;
+}
+
+/* Responsive Design for Forms */
+@media (max-width: 600px) {
+    form {
+        padding: 15px;
+        font-size: 0.9em;
+    }
+}
+
+/* Styling the Maintenance Display Container */
+#maintenance-display {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+/* Styling the Title (h3) */
+#maintenance-display h3 {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #007bff; /* Blue color for emphasis */
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Styling for Maintenance Records List */
+#maintenance-records {
+    list-style-type: none; /* Removes the default list bullets */
+    padding-left: 0;
+    margin: 0;
+}
+
+/* Styling for Each List Item (Maintenance Record) */
+#maintenance-records li {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px 15px;
+    margin-bottom: 12px;
+    font-size: 1em;
+    color: #444;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Highlighting the List Item on Hover */
+#maintenance-records li:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+/* Styling for Task Details inside List Item */
+#maintenance-records li .task-info {
+    font-size: 1.1em;
+    color: #333;
+}
+
+/* Responsive Design for the Maintenance Display */
+@media (max-width: 600px) {
+    #maintenance-display {
+        padding: 15px;
+    }
+
+    #maintenance-display h3 {
+        font-size: 1.5em;
+    }
+
+    #maintenance-records li {
+        font-size: 0.9em;
+    }
+}
+
+/* Form container for side-by-side forms */
+.form-container {
+    display: flex; /* Enables flex layout */
+    justify-content: space-between; /* Evenly distributes forms with space between them */
+    gap: 20px; /* Adds space between forms */
+    padding: 20px;
+    max-width: 1200px; /* Limits the width of the container */
+    margin: 0 auto; /* Centers the container horizontally */
+}
+
+
+/* Responsive design for small screens */
+@media (max-width: 768px) {
+    .form-container {
+        flex-direction: column; /* Stacks forms vertically */
+        gap: 10px; /* Reduces space between forms */
+    }
+}
