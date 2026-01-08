@@ -127,15 +127,11 @@ const yearSelect = document.getElementById("year");
 const submitButton = document.getElementById("submit");
 const vehicleList = document.getElementById("vehicle-list");
 
-
-// Populate models when a make is selected
 makeSelect.addEventListener("change", () => {
     const selectedMake = makeSelect.value;
 
-    // Clear existing models
     modelSelect.innerHTML = '<option value="" disabled selected>Select a model</option>';
 
-    // Add models for the selected make
     if (selectedMake && carModels[selectedMake]) {
         carModels[selectedMake].forEach(model => {
             const option = document.createElement("option");
@@ -146,15 +142,12 @@ makeSelect.addEventListener("change", () => {
     }
 });
 
-// Populate models when a make is selected
 makeSelect.addEventListener("change", () => {
     const selectedMake = makeSelect.value;
 
-    // Clear existing models
     modelSelect.innerHTML = '<option value="" disabled selected>Select a model</option>';
     modelSelect.disabled = true; // Disable by default
 
-    // Enable and add models for the selected make
     if (selectedMake && carModels[selectedMake]) {
         carModels[selectedMake].forEach(model => {
             const option = document.createElement("option");
@@ -166,15 +159,12 @@ makeSelect.addEventListener("change", () => {
     }
 });
 
-// Populate years when a model is selected
 modelSelect.addEventListener("change", () => {
     const selectedModel = modelSelect.value;
 
-    // Clear existing years
     yearSelect.innerHTML = '<option value="" disabled selected>Select a year</option>';
     yearSelect.disabled = true; // Disable by default
 
-    // Enable and add years for the selected model
     if (selectedModel && modelYears[selectedModel]) {
         const [startYear, endYear] = modelYears[selectedModel];
         for (let year = startYear; year <= endYear; year++) {
@@ -187,16 +177,14 @@ modelSelect.addEventListener("change", () => {
     }
 });
 
-// Handle form submission
 submitButton.addEventListener("click", function () {
     const selectedMake = makeSelect.value;
     const selectedModel = modelSelect.value;
     const selectedYear = yearSelect.value;
 
-    // Check if all selections are made
     if (!selectedMake || !selectedModel || !selectedYear) {
         alert("Please select a make, model, and year.");
-        return; // Stop further execution
+        return; 
     }
 
     const vehicle = {
@@ -205,26 +193,21 @@ submitButton.addEventListener("click", function () {
         year: selectedYear
     };
 
-    // Save vehicle to local storage
     let vehicles = JSON.parse(localStorage.getItem("vehicles")) || [];
     vehicles.push(vehicle);
     localStorage.setItem("vehicles", JSON.stringify(vehicles));
-
-    // Clear the form
+    
     makeSelect.value = '';
     modelSelect.innerHTML = '<option value="" disabled selected>Select a model</option>';
     modelSelect.disabled = true;
     yearSelect.innerHTML = '<option value="" disabled selected>Select a year</option>';
     yearSelect.disabled = true;
 
-    // Update the vehicle list
     displaySavedVehicles();
 
-    // Update the dropdown dynamically
     populateVehicleDropdown();
 });
 
-// Display saved vehicles
 function displaySavedVehicles() {
     const vehicles = JSON.parse(localStorage.getItem("vehicles")) || [];
     vehicleList.innerHTML = '';
@@ -234,7 +217,6 @@ function displaySavedVehicles() {
         li.textContent = `${vehicle.year} ${vehicle.make} ${vehicle.model}`;
         li.classList.add("vehicle-item");
 
-        // Add remove button
         const removeButton = document.createElement("button");
         removeButton.textContent = "Remove";
         removeButton.classList.add("removeButton"); // Add a CSS class to style
@@ -247,7 +229,6 @@ function displaySavedVehicles() {
     });
 }
 
-// Remove a specific vehicle
 function removeVehicle(vehicleToRemove) {
     let vehicles = JSON.parse(localStorage.getItem("vehicles")) || [];
     vehicles = vehicles.filter(vehicle =>
@@ -257,20 +238,16 @@ function removeVehicle(vehicleToRemove) {
     );
     localStorage.setItem("vehicles", JSON.stringify(vehicles));
 
-    // Update the vehicle display
     displaySavedVehicles();
 
-    // Update the Add Maintenance list
     populateVehicleDropdown();
 }
 
-// Clear all vehicles
 clearAll.addEventListener("click", () => {
     localStorage.removeItem("vehicles");
     vehicleList.innerHTML = "";
     alert("All saved vehicles have been deleted.");
 
-    // Update the Add Maintenance list
     populateVehicleDropdown();
 
     displayMaintenanceRecords();
@@ -307,7 +284,6 @@ saveMaintenanceButton.addEventListener("click", () => {
 
     let maintenanceRecords = JSON.parse(localStorage.getItem("maintenanceRecords")) || {};
 
-    // Check if tasks already exist for the selected vehicle and append them
     maintenanceRecords[vehicleIndex] = (maintenanceRecords[vehicleIndex] || []).concat(tasks);
 
     localStorage.setItem("maintenanceRecords", JSON.stringify(maintenanceRecords));
@@ -342,34 +318,25 @@ function displayMaintenanceRecords() {
 }
 
 function deleteMaintenanceTask(vehicleIndex, taskIndex) {
-    // Retrieve maintenance records from localStorage
     const maintenanceRecords = JSON.parse(localStorage.getItem("maintenanceRecords")) || {};
 
-    // Check if the vehicle has maintenance tasks
     if (maintenanceRecords[vehicleIndex]) {
-        // Remove the specified task
         maintenanceRecords[vehicleIndex].splice(taskIndex, 1);
 
-        // If no tasks remain, delete the vehicle's maintenance entry
         if (maintenanceRecords[vehicleIndex].length === 0) {
             delete maintenanceRecords[vehicleIndex];
         }
-
-        // Update localStorage
         localStorage.setItem("maintenanceRecords", JSON.stringify(maintenanceRecords));
 
-        // Refresh the displayed records
         displayMaintenanceRecords();
 
         
     }
 }
 
-
-
-// Load saved vehicles on page load
 window.onload = function() {
     populateVehicleDropdown();
     displaySavedVehicles();
     displayMaintenanceRecords()
 };
+
